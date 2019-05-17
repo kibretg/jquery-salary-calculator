@@ -14,22 +14,27 @@
 <body>
     <h1>jquery Salary Calculator</h1>
     <div id="inputFields">
-        <input type="text" placeholder="First Name"></input>
-        <input type="text" placeholder="Last Name"></input>
-        <input type="text" placeholder="ID"></input>
-        <input type="text" placeholder="Title"></input>
-        <input type="text" placeholder="Annual Salary"></input>
+        <input id="firstName" type="text" placeholder="First Name"></input>
+        <input id="lastName" type="text" placeholder="Last Name"></input>
+        <input id="idNum" type="text" placeholder="ID"></input>
+        <input id="title" type="text" placeholder="Title"></input>
+        <input id="annualSalary" type="text" placeholder="Annual Salary"></input>
         <button id=submit>Submit</button>
     </div>
     <table>
 
         <thead>
             <tr>
-                <th>Salary Calculator</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Annual Salary</th>
+                <th>Delete</th>
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="tableBody">
             <tr>
                 <td></td>
             </tr>
