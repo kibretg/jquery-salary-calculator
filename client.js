@@ -8,17 +8,20 @@ function onReady(){
     $('#submit').on('click', handleClick); 
     //event listener that will call handleDeleteClick function
     $('#tableBody').on('click', '.deleteEmp', handleDeleteClick);
+    $('#totalMonthlyCounter').append(totalAnnualSalary/12);
     
 }
 
+let totalAnnualSalary = 186000;
+
 function handleClick() {
     console.log('button clicked');
-    
-    let firstName = $('#firstName').val();
-    let lastName = $('#lastName').val();
-    let idNum = $('#idNum').val();
-    let title = $('#title').val();
-    let annualSalary = $('#annualSalary').val();
+    //create variables to hold data
+    const firstName = $('#firstName').val();
+    const lastName = $('#lastName').val();
+    const idNum = $('#idNum').val();
+    const title = $('#title').val();
+    const annualSalary = Number($('#annualSalary').val());
 
     $('#tableBody').append(`
     <tr>
@@ -33,11 +36,16 @@ function handleClick() {
         
     </tr>`)
 
+    //clear inputs
     $('#firstName').val('');
     $('#lastName').val('');
     $('#idNum').val('');
     $('#title').val('');
     $('#annualSalary').val('');
+
+    totalAnnualSalary += annualSalary;
+    calcSalaries();
+
 }
 
 function handleDeleteClick(){
@@ -45,5 +53,19 @@ function handleDeleteClick(){
 
     $(this).closest('tr').remove();
 
-    
+    totalAnnualSalary -= annualSalary;
+    calcSalaries();
 }
+
+function calcSalaries(){
+    let monthlySal = totalAnnualSalary / 12;
+
+    console.log('monthlySal', monthlySal);
+
+    
+    
+
+
+ $('#totalMonthlyCounter').text(Math.round(monthlySal));
+}
+
