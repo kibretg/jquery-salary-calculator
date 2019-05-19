@@ -8,7 +8,7 @@ function onReady(){
     $('#submit').on('click', handleClick); 
     //event listener that will call handleDeleteClick function
     $('#tableBody').on('click', '.deleteEmp', handleDeleteClick);
-    $('#totalMonthlyCounter').append(totalAnnualSalary/12);
+   
     
 }
 
@@ -43,9 +43,16 @@ function handleClick() {
     $('#title').val('');
     $('#annualSalary').val('');
 
-    totalAnnualSalary += annualSalary;
-    calcSalaries();
-
+    // totalAnnualSalary += annualSalary;
+    // calcSalaries();
+    totalAnnualSalary += Number(annualSalary);
+    let monthlyIncome = ( totalAnnualSalary/12 );
+    console.log(totalAnnualSalary);
+    console.log(Number(monthlyIncome));
+    $('#totalMonthlyCounter').text(monthlyIncome.toFixed (2));
+    if (monthlyIncome > 20000){
+        $('#totalMonthlyCounter').css('color', 'red');
+    }
 }
 
 function handleDeleteClick(){
@@ -53,19 +60,6 @@ function handleDeleteClick(){
 
     $(this).closest('tr').remove();
 
-    totalAnnualSalary -= annualSalary;
-    calcSalaries();
-}
-
-function calcSalaries(){
-    let monthlySal = totalAnnualSalary / 12;
-
-    console.log('monthlySal', monthlySal);
-
-    
     
 
-
- $('#totalMonthlyCounter').text(Math.round(monthlySal));
 }
-
