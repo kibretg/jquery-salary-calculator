@@ -1,3 +1,24 @@
-body {
-    background-color: aquamarine;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid rgb(161, 18, 18);
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: gray;
+}
+
+div {
+    margin: 20px;
+}
+
+#totalMonthlyCounter {
+    text-align: left;
 }

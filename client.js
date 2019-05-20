@@ -8,6 +8,7 @@ function onReady(){
     $('#submit').on('click', handleClick); 
     //event listener that will call handleDeleteClick function
     $('#tableBody').on('click', '.deleteEmp', handleDeleteClick);
+    $('#totalMonthlyCounter').text((totalAnnualSalary/12).toFixed(2));
    
     
 }
